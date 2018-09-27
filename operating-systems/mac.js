@@ -17,7 +17,7 @@ function decVol() {
 }
 
 function setVol(volume) {
-    exec(`osascript -e 'set volume output volume ((output volume of (get volume settings)) - ${volume})'`);
+    exec(`osascript -e 'set volume output volume ((output volume of (get volume settings)) ${volume})'`);
 }
 
 exports.mute   = mute;

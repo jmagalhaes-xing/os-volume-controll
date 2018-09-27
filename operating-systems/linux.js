@@ -17,7 +17,7 @@ function decVol() {
 }
 
 function setVol(volume) {
-  exec(`amixer -D pulse sset Master ${volume}%-`);
+  exec(`amixer -D pulse sset Master ${volume}%`);
 }
 
 exports.mute   = mute;
