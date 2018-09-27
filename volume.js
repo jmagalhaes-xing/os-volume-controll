@@ -1,17 +1,17 @@
-var osName = '';
-if( /^win/.test(process.platform) ){ // Windows
+let osName = '';
+
+if( /^win/.test(process.platform) ) {
     osName = 'windows';
-}
-else if(process.platform == 'darwin'){ // Mac
+} else if(process.platform === 'darwin') {
     osName = 'mac';
-}
-else{ // Gnu/Linux
+} else {
     osName = 'linux';
 }
 
-var os = require(__dirname + '/operating-systems/' + osName);
+const os = require(`${__dirname}/operating-systems/${osName}`);
 
 exports.mute = os.mute;
 exports.unmute = os.unmute;
 exports.incVol = os.incVol;
 exports.decVol = os.decVol;
+exports.setVol = os.setVol;

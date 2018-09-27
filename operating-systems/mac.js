@@ -1,24 +1,28 @@
-var exec = require('child_process').exec;
+const exec = require('child_process').exec;
 
-
-function mute(){
+function mute() {
   exec("osascript -e 'set volume output muted true'");
 }
 
-function unmute(){
+function unmute() {
   exec("osascript -e 'set volume output muted false'");
 }
 
-function incVol(){
+function incVol() {
   exec("osascript -e 'set volume output volume ((output volume of (get volume settings)) + 10)'");
 }
 
-function decVol(){
+function decVol() {
   exec("osascript -e 'set volume output volume ((output volume of (get volume settings)) - 10)'");
+}
+
+function setVol(volume) {
+    exec(`osascript -e 'set volume output volume ((output volume of (get volume settings)) - ${volume})'`);
 }
 
 exports.mute   = mute;
 exports.unmute = unmute;
 exports.incVol = incVol;
 exports.decVol = decVol;
+exports.setVol = setVol;
 گ

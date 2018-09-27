@@ -1,22 +1,27 @@
-var exec = require('child_process').exec;
+const exec = require('child_process').exec;
 
-function mute(){
+function mute() {
   exec("amixer -D pulse sset Master mute");
 }
 
-function unmute(){
+function unmute() {
   exec("amixer -D pulse sset Master unmute");
 }
 
-function incVol(){
+function incVol() {
   exec("amixer -D pulse sset Master 10%+");
 }
 
-function decVol(){
+function decVol() {
   exec("amixer -D pulse sset Master 10%-");
+}
+
+function setVol(volume) {
+  exec(`amixer -D pulse sset Master ${volume}%-`);
 }
 
 exports.mute   = mute;
 exports.unmute = unmute;
 exports.incVol = incVol;
 exports.decVol = decVol;
+exports.setVol = setVol;
